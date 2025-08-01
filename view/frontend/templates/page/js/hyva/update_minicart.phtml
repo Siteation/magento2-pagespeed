@@ -1,0 +1,23 @@
+<?php declare(strict_types=1);
+
+/**
+ * @author Siteation (https://siteation.dev/)
+ * @copyright Copyright 2021 Siteation (https://siteation.dev/)
+ * @license MIT
+ */
+
+use Magento\Framework\Escaper;
+use Magento\Framework\View\Element\Template;
+
+/** @var Template $block */
+/** @var Escaper $escaper */
+?>
+
+<script>
+    window.addEventListener('pageshow', (event) => {
+        const [navigationTiming] = performance.getEntriesByType('navigation');
+        if (event.persisted || navigationTiming?.type === 'back_forward') {
+            window.dispatchEvent(new CustomEvent("reload-customer-section-data"));
+        };
+    });
+</script>

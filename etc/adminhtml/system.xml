@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+
+<config
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd"
+>
+    <system>
+        <tab id="siteation" sortOrder="999" translate="label">
+            <label>Siteation</label>
+        </tab>
+
+        <section id="siteation_pagespeed" translate="label" type="text" sortOrder="900" showInDefault="1"
+            showInWebsite="1"
+            showInStore="1">
+            <label>Pagespeed</label>
+            <tab>siteation</tab>
+            <resource>Magento_Backend::store</resource>
+
+            <group id="bfcache" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1"
+                showInStore="1">
+                <label>Back Forward Cache</label>
+
+                <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1"
+                    showInWebsite="1"
+                    showInStore="1" canRestore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="exclude_list" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1"
+                    showInStore="1" canRestore="1">
+                    <label>Exclude pattern</label>
+                    <frontend_model>Siteation\Pagespeed\Block\Adminhtml\Form\Field\Url</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                    <comment>Enter one route name per line to exclude specific pages from being cached by the
+                        Back/Forward Cache.</comment>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+            </group>
+
+            <group id="speculation_rules" translate="label" type="text" sortOrder="20" showInDefault="1"
+                showInWebsite="1" showInStore="1">
+                <label>Speculation Rules</label>
+
+                <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1"
+                    showInWebsite="1"
+                    showInStore="1" canRestore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="exclude_list" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1"
+                    showInStore="1" canRestore="1">
+                    <label>Exclude pattern</label>
+                    <frontend_model>Siteation\Pagespeed\Block\Adminhtml\Form\Field\Url</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                    <comment>Enter one route name per line to exclude specific pages from being preloaded by the
+                        Speculation Rules.</comment>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+            </group>
+
+            <group id="view_transitions" translate="label" type="text" sortOrder="20" showInDefault="1"
+                showInWebsite="1" showInStore="1">
+                <label>View Transitions</label>
+
+                <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1"
+                    showInWebsite="1"
+                    showInStore="1" canRestore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>To prevent double Loading, make sure the Hyvä Experimental Flag setting is disabled, when
+                        using this option!</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

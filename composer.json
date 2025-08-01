@@ -1,0 +1,36 @@
+{
+  "name": "siteation/magento2-pagespeed",
+  "version": "0.1.0",
+  "license": "proprietary",
+  "type": "magento2-module",
+  "description": "Back Forward Cache, Speculation Rules and View Transitions for Magento2",
+  "readme": "README.md",
+  "keywords": [
+    "magento2",
+    "magento2-module",
+    "magento2-hyva",
+    "bfcache",
+    "speculation",
+    "viewtransitions"
+  ],
+  "authors": [
+    {
+      "name": "Siteation",
+      "email": "info@siteation.dev",
+      "homepage": "https://siteation.dev/"
+    }
+  ],
+  "require": {
+    "magento/framework": ">=103.0",
+    "magento/module-directory": ">=100.4",
+    "magento/module-store": ">=101.1"
+  },
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Siteation\\Pagespeed\\": ""
+    }
+  }
+}

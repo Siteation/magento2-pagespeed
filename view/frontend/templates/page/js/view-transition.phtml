@@ -1,0 +1,51 @@
+<?php declare(strict_types=1);
+
+/**
+ * @author Siteation (https://siteation.dev/)
+ * @copyright Copyright 2021 Siteation (https://siteation.dev/)
+ * @license MIT
+ */
+
+use Magento\Framework\Escaper;
+use Magento\Framework\View\Element\Template;
+
+/** @var Template $block */
+/** @var Escaper $escaper */
+?>
+
+<script>
+    const setTransitionNameBetweenGallery = async (url, promise) => {
+        if (window.matchMedia('(prefers-reduced-motion)').matches) return;
+
+        const productGallery = document.getElementById('gallery');
+        const productListItem = document.querySelector(`.product-item-photo[href="${url}"]`);
+        const targetElement = productListItem
+            ? productListItem
+            : (productGallery ? productGallery.querySelector('img').parentNode : null);
+
+        if (targetElement) {
+            targetElement.style.viewTransitionName = 'view-transition-to-gallery';
+            await promise;
+            targetElement.style.viewTransitionName = '';
+        }
+    };
+
+    window.addEventListener('pageswap', async (e) => {
+        if (!e.viewTransition) return;
+        const targetUrl = new URL(e.activation.entry.url);
+        setTransitionNameBetweenGallery(targetUrl.href, e.viewTransition.finished);
+    });
+
+    window.addEventListener('pagereveal', async (e) => {
+        if (!e.viewTransition || !navigation.activation.from) return;
+        const fromUrl = new URL(navigation.activation.from.url);
+        // const entryURL = new URL(navigation.activation.entry.url);
+        setTransitionNameBetweenGallery(fromUrl.href, e.viewTransition.ready);
+    });
+</script>
+
+<style>
+    @view-transition {
+        navigation: auto;
+    }
+</style>

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<page
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd"
+>
+    <body>
+        <referenceContainer name="head.additional">
+            <block
+                name="siteation_pagespeed.speculation_rules"
+                template="Siteation_Pagespeed::page/js/speculationrules.phtml"
+                ifconfig="siteation_pagespeed/speculation_rules/enable"
+            >
+                <arguments>
+                    <argument
+                        name="viewmodel_speculation_rules"
+                        xsi:type="object"
+                    >Siteation\Pagespeed\ViewModel\SpeculationRules</argument>
+                </arguments>
+            </block>
+            <block
+                name="siteation_pagespeed.view-transition"
+                template="Siteation_Pagespeed::page/js/view-transition.phtml"
+                ifconfig="siteation_pagespeed/view_transitions/enable"
+            />
+        </referenceContainer>
+
+        <referenceBlock name="before.body.end">
+            <block
+                name="siteation_pagespeed.update.minicart"
+                template="Siteation_Pagespeed::page/js/update_minicart.phtml"
+                ifconfig="siteation_pagespeed/bfcache/enable"
+            />
+        </referenceBlock>
+    </body>
+</page>
