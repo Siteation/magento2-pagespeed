@@ -45,9 +45,4 @@ class SpeculationRules implements ArgumentInterface
 
         return json_encode($value, JSON_UNESCAPED_SLASHES);
     }
-
-    public function getEagerness(): string
-    {
-        return $this->config->getConfig('eagerness');
-    }
 }
