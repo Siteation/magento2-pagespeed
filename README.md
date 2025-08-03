@@ -11,10 +11,19 @@ A Magento 2 module that leverages modern web performance technologies including 
 
 Install the package via;
 
-```bash
+```sh
 composer require siteation/magento2-pagespeed
 bin/magento module:enable Siteation_Pagespeed
 ```
+
+<details><summary>Dev Setup</summary>
+
+```sh
+composer config repositories.siteation/magento2-pagespeed git git@github.com:Siteation/magento2-pagespeed.git
+composer require siteation/magento2-pagespeed
+```
+    
+</details>
 
 ## How to use
 
