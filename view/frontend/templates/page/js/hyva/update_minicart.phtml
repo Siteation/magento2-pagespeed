@@ -15,8 +15,7 @@ use Magento\Framework\View\Element\Template;
 
 <script>
     window.addEventListener('pageshow', (event) => {
-        const [navigationTiming] = performance.getEntriesByType('navigation');
-        if (event.persisted || navigationTiming?.type === 'back_forward') {
+        if (event.persistedrd) {
             window.dispatchEvent(new CustomEvent("reload-customer-section-data"));
         };
     });
