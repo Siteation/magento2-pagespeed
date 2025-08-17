@@ -1,0 +1,41 @@
+<?php declare(strict_types=1);
+
+/**
+ * @author Siteation (https://siteation.dev/)
+ * @copyright Copyright 2021 Siteation (https://siteation.dev/)
+ * @license MIT
+ */
+
+use Magento\Framework\Escaper;
+use Magento\Framework\View\Element\Template;
+use Hyva\Theme\ViewModel\HyvaCsp;
+use Siteation\Pagespeed\ViewModel\SpeculationRules;
+
+/** @var Template $block */
+/** @var Escaper $escaper */
+/** @var HyvaCsp $hyvaCsp */
+
+/** @var SpeculationRules $speculationRules */
+$speculationRules = $block->getData('viewmodel_speculation_rules');
+?>
+
+<script type="speculationrules">
+{
+    "tag": "siteation_pagespeed",
+    "prerender": [{
+        "source": "document",
+        "where": {
+            "and": [
+                { "href_matches": "/*" },
+                { "not": { "href_matches": <?= $speculationRules->getExcludeList(); ?> }},
+                { "not": { "selector_matches": ".do-not-prerender" } },
+                { "not": { "selector_matches": "[download]" } },
+                { "not": { "selector_matches": "[rel~=nofollow]" } }
+
+            ]
+        },
+        "eagerness": "moderate"
+    }]
+}
+</script>
+<?php $hyvaCsp->registerInlineScript() ?>

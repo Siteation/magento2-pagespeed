@@ -5,6 +5,10 @@
 >
     <body>
         <referenceBlock
+            name="siteation_pagespeed.speculation_rules"
+            template="Siteation_Pagespeed::page/js/hyva/speculationrules.phtml"
+        />
+        <referenceBlock
             name="siteation_pagespeed.view-transition"
             template="Siteation_Pagespeed::page/js/hyva/view-transition.phtml"
         />
