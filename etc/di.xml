@@ -6,8 +6,15 @@
 >
     <type name="Magento\Framework\App\Response\Http">
         <plugin
-            name="Siteation_Pagespeed::disable_no_cache"
-            type="Siteation\Pagespeed\Plugin\Framework\App\Response\Http\DisableNoCache"
+            name="Siteation_Pagespeed::disableNoCacheHeaderPlugin"
+            type="Siteation\Pagespeed\Plugin\DisableNoCacheHeaderPlugin"
+        />
+    </type>
+    
+    <type name="Magento\Framework\View\Result\Page">
+        <plugin
+            name="Siteation_Pagespeed::addHeadersToPageResult"
+            type="Siteation\Pagespeed\Plugin\AddHeadersToPageResultPlugin"
         />
     </type>
 </config>

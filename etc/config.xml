@@ -8,38 +8,7 @@
         <siteation_pagespeed>
             <bfcache>
                 <enable>0</enable>
-                <exclude_list>
-                    <bfcache_item_admin>
-                        <path>admin</path>
-                    </bfcache_item_admin>
-                    <bfcache_item_catalog_compare>
-                        <path>catalog/product_compare</path>
-                    </bfcache_item_catalog_compare>
-                    <bfcache_item_checkout>
-                        <path>checkout</path>
-                    </bfcache_item_checkout>
-                    <bfcache_item_customer>
-                        <path>customer</path>
-                    </bfcache_item_customer>
-                    <bfcache_item_onepage>
-                        <path>onepage</path>
-                    </bfcache_item_onepage>
-                    <bfcache_item_payment>
-                        <path>payment</path>
-                    </bfcache_item_payment>
-                    <bfcache_item_paypal>
-                        <path>paypal</path>
-                    </bfcache_item_paypal>
-                    <bfcache_item_redirect>
-                        <path>redirect</path>
-                    </bfcache_item_redirect>
-                    <bfcache_item_sales_order>
-                        <path>sales/order</path>
-                    </bfcache_item_sales_order>
-                    <bfcache_item_wishlist>
-                        <path>wishlist</path>
-                    </bfcache_item_wishlist>
-                </exclude_list>
+                <max_age>0</max_age>
             </bfcache>
             <speculation_rules>
                 <enable>0</enable>

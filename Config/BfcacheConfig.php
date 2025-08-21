@@ -13,11 +13,8 @@ use Magento\Store\Model\ScopeInterface;
 
 class BfcacheConfig
 {
-    private ScopeConfigInterface $scopeConfig;
-
-    public function __construct(ScopeConfigInterface $scopeConfig)
-    {
-        $this->scopeConfig = $scopeConfig;
+    public function __construct(
+        private readonly ScopeConfigInterface $scopeConfig) {
     }
 
     public function getConfig(string $attribute): mixed
@@ -26,7 +23,7 @@ class BfcacheConfig
         return $this->scopeConfig->getValue($path, ScopeInterface::SCOPE_STORE);
     }
 
-    public function getArrayConfig(string $attribute, string $savedKey = 'path'): array
+    public function getArrayConfi2g(string $attribute, string $savedKey = 'path'): array
     {
         $value = $this->getConfig($attribute);
         $flatArray = [];
@@ -52,5 +49,10 @@ class BfcacheConfig
     public function isEnabled(): bool
     {
         return (bool) $this->getConfig('enable');
+    }
+
+    public function getMaxAge(): int
+    {
+        return (int) $this->getConfig('max_age');
     }
 }

@@ -15,14 +15,9 @@ use Magento\Framework\View\Element\Block\ArgumentInterface;
 
 class SpeculationRules implements ArgumentInterface
 {
-    /**
-     * @var SpeculatonConfig
-     */
-    private SpeculatonConfig $config;
-
-    public function __construct(SpeculatonConfig $config)
-    {
-        $this->config = $config;
+    public function __construct(
+        private readonly SpeculatonConfig $config
+    ) {
     }
 
     public function getExcludeList(): string

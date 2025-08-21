@@ -13,16 +13,15 @@ use Magento\Store\Model\ScopeInterface;
 
 class SpeculatonConfig
 {
-    private ScopeConfigInterface $scopeConfig;
-
-    public function __construct(ScopeConfigInterface $scopeConfig)
-    {
-        $this->scopeConfig = $scopeConfig;
+    public function __construct(
+        private readonly ScopeConfigInterface $scopeConfig
+    ) {
     }
 
     public function getConfig(string $attribute): mixed
     {
         $path = sprintf('siteation_pagespeed/speculation_rules/%s', $attribute);
+
         return $this->scopeConfig->getValue($path, ScopeInterface::SCOPE_STORE);
     }
 

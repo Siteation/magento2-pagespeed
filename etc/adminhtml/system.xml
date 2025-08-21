@@ -26,18 +26,6 @@
                     <label>Enable</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
-
-                <field id="exclude_list" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1"
-                    showInStore="1" canRestore="1">
-                    <label>Exclude pattern</label>
-                    <frontend_model>Siteation\Pagespeed\Block\Adminhtml\Form\Field\Url</frontend_model>
-                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
-                    <comment>Enter one route name per line to exclude specific pages from being cached by the
-                        Back/Forward Cache.</comment>
-                    <depends>
-                        <field id="enable">1</field>
-                    </depends>
-                </field>
             </group>
 
             <group id="speculation_rules" translate="label" type="text" sortOrder="20" showInDefault="1"
