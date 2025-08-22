@@ -23,7 +23,7 @@ class BfcacheConfig
         return $this->scopeConfig->getValue($path, ScopeInterface::SCOPE_STORE);
     }
 
-    public function getArrayConfi2g(string $attribute, string $savedKey = 'path'): array
+    public function getArrayConfig(string $attribute, string $savedKey = 'path'): array
     {
         $value = $this->getConfig($attribute);
         $flatArray = [];
