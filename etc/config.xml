@@ -7,7 +7,7 @@
     <default>
         <siteation_pagespeed>
             <bfcache>
-                <enable>0</enable>
+                <enable>1</enable>
                 <max_age>0</max_age>
             </bfcache>
             <speculation_rules>
