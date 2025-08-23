@@ -5,5 +5,10 @@
 >
     <body>
         <referenceBlock name="breeze.speculationRules" remove="true"/>
+
+        <referenceBlock
+            name="siteation_pagespeed.view-transition"
+            template="Siteation_Pagespeed::page/js/breeze/view-transition.phtml"
+        />
     </body>
 </page>
