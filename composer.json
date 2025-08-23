@@ -1,7 +1,7 @@
 {
   "name": "siteation/magento2-pagespeed",
   "version": "1.0.0",
-  "license": "proprietary",
+  "license": "MIT",
   "type": "magento2-module",
   "description": "Back Forward Cache, Speculation Rules and View Transitions for Magento2",
   "readme": "README.md",
@@ -9,6 +9,7 @@
     "magento2",
     "magento2-module",
     "magento2-hyva",
+    "magento2-breeze",
     "bfcache",
     "speculation",
     "viewtransitions"
