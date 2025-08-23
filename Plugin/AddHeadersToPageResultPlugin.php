@@ -34,11 +34,11 @@ class AddHeadersToPageResultPlugin
         if (true === $this->shouldSkip($subject)) {
             return $return;
         }
-        
+
         /** @var Http $httpResponse */
         $maxAge = $this->config->getMaxAge();
         $httpResponse->setHeader('cache-control', 'public, max-age='.$maxAge, true);
-        
+
         return $return;
     }
 
@@ -51,7 +51,7 @@ class AddHeadersToPageResultPlugin
         if (false === $this->request->isGet() && false === $this->request->isHead()) {
             return true;
         }
-        
+
         if (false === $subject->getLayout()->isCacheable()) {
             return true;
         }

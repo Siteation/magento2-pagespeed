@@ -1,22 +1,21 @@
 <?xml version="1.0"?>
-
 <config
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd"
 >
     <system>
-        <tab id="siteation" sortOrder="999" translate="label">
+        <tab id="siteation" sortOrder="999">
             <label>Siteation</label>
         </tab>
 
-        <section id="siteation_pagespeed" translate="label" type="text" sortOrder="900" showInDefault="1"
+        <section id="siteation_pagespeed" type="text" sortOrder="900" showInDefault="1"
             showInWebsite="1"
             showInStore="1">
             <label>Pagespeed</label>
             <tab>siteation</tab>
             <resource>Magento_Backend::store</resource>
 
-            <group id="bfcache" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1"
+            <group id="bfcache" type="text" sortOrder="10" showInDefault="1" showInWebsite="1"
                 showInStore="1">
                 <label>Back Forward Cache</label>
 
@@ -28,7 +27,7 @@
                 </field>
             </group>
 
-            <group id="speculation_rules" translate="label" type="text" sortOrder="20" showInDefault="1"
+            <group id="speculation_rules" type="text" sortOrder="20" showInDefault="1"
                 showInWebsite="1" showInStore="1">
                 <label>Speculation Rules</label>
 
@@ -39,7 +38,7 @@
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
 
-                <field id="exclude_list" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1"
+                <field id="exclude_list" translate="label,comment" sortOrder="20" showInDefault="1" showInWebsite="1"
                     showInStore="1" canRestore="1">
                     <label>Exclude pattern</label>
                     <frontend_model>Siteation\Pagespeed\Block\Adminhtml\Form\Field\Url</frontend_model>
@@ -52,7 +51,7 @@
                 </field>
             </group>
 
-            <group id="view_transitions" translate="label" type="text" sortOrder="20" showInDefault="1"
+            <group id="view_transitions" translate="comment" type="text" sortOrder="20" showInDefault="1"
                 showInWebsite="1" showInStore="1">
                 <label>View Transitions</label>
 

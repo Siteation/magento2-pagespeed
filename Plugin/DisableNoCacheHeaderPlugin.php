@@ -32,14 +32,14 @@ class DisableNoCacheHeaderPlugin
         $header = $subject->getHeader('Cache-Control');
 
         $proceed();
-        
+
         if ($this->isCacheable($header)) {
             $maxAge = $this->config->getMaxAge();
             $subject->setHeader('cache-control', 'public, max-age='.$maxAge, true);
             $subject->clearHeader('pragma');
         }
     }
-    
+
     private function isCacheable($header): bool
     {
         if (!$header) {
@@ -57,10 +57,10 @@ class DisableNoCacheHeaderPlugin
                 }
             }
         }
-        
+
         return false;
     }
-    
+
     private function doesHeaderValueAllowCaching(string $headerValue): bool
     {
         if (str_contains($headerValue, 'no-cache')) {

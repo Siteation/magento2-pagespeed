@@ -23,29 +23,6 @@ class BfcacheConfig
         return $this->scopeConfig->getValue($path, ScopeInterface::SCOPE_STORE);
     }
 
-    public function getArrayConfig(string $attribute, string $savedKey = 'path'): array
-    {
-        $value = $this->getConfig($attribute);
-        $flatArray = [];
-
-        if (is_string($value)) {
-            $decoded = json_decode($value, true);
-            if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
-                $value = $decoded;
-            }
-        }
-
-        if (is_array($value)) {
-            foreach ($value as $item) {
-                if (is_array($item) && isset($item[$savedKey])) {
-                    $flatArray[] = $item[$savedKey];
-                }
-            }
-        }
-
-        return $flatArray;
-    }
-
     public function isEnabled(): bool
     {
         return (bool) $this->getConfig('enable');
