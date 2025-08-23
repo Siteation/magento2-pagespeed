@@ -41,7 +41,7 @@ While this module makes sure to reload the customer data, it can not close the m
 
 This requires a update in the code of this component to handle the closing of these elements when the page is restored from the bfcache.
 
-For this you can use the following snippets, based on the menu in Hyvä themes.
+For this you can use the following snippets:
 
 <details><summary>Hyvä Code Snippet</summary>
 
