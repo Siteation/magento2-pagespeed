@@ -75,4 +75,25 @@ const initMenuMobile<?= $escaper->escapeHtml($uniqueId) ?> = () => {
 
 </details>
 
+<details><summary>Breeze Code Snippet</summary>
+
+In your copy of `vendor/swissup/module-breeze/view/frontend/web/js/components/menu.js` edit the follwing:
+
+```diff
+    this._on(document, 'keydown', e => {
+        if (e.key === 'Escape' && $('html').hasClass('nav-open')) {
+            this.close();
+        }
+    });
+
++++ this._on(window, "pageshow", e => {
++++     if (e.persisted) {
++++         this.close();
++++     }
++++ });
+},
+```
+
+</details>
+
 For Luma sadly we have no equivalent solution available at this time.
