@@ -11,8 +11,8 @@
     "magento2-hyva",
     "magento2-breeze",
     "bfcache",
-    "speculation",
-    "viewtransitions"
+    "speculation-rules",
+    "view-transitions"
   ],
   "authors": [
     {
