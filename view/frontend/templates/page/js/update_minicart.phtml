@@ -8,12 +8,14 @@
 
 use Magento\Framework\Escaper;
 use Magento\Framework\View\Element\Template;
+use Magento\Framework\View\Helper\SecureHtmlRenderer;
 
 /** @var Template $block */
 /** @var Escaper $escaper */
+/** @var SecureHtmlRenderer $secureRenderer */
 ?>
 
-<script>
+<?= $secureRenderer->renderTag('script', [], <<<script
     window.addEventListener('pageshow', (event) => {
         if (event.persisted) {
             require(['Magento_Customer/js/customer-data'], function (customerData) {
@@ -23,4 +25,4 @@ use Magento\Framework\View\Element\Template;
             });
         };
     });
-</script>
+script, false); ?>

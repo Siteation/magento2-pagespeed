@@ -8,31 +8,38 @@
 
 use Magento\Framework\Escaper;
 use Magento\Framework\View\Element\Template;
+use Magento\Framework\View\Helper\SecureHtmlRenderer;
 use Siteation\Pagespeed\ViewModel\SpeculationRules;
 
 /** @var Template $block */
 /** @var Escaper $escaper */
+/** @var SecureHtmlRenderer $secureRenderer */
 
 /** @var SpeculationRules $speculationRules */
 $speculationRules = $block->getData('viewmodel_speculation_rules');
 ?>
 
-<script type="speculationrules">
-{
-    "tag": "siteation_pagespeed",
-    "prerender": [{
-        "source": "document",
-        "where": {
-            "and": [
-                { "href_matches": "/*" },
-                { "not": { "href_matches": <?= $speculationRules->getExcludeList(); ?> }},
-                { "not": { "selector_matches": ".do-not-prerender" } },
-                { "not": { "selector_matches": "[download]" } },
-                { "not": { "selector_matches": "[rel~=nofollow]" } }
+<?= $secureRenderer->renderTag(
+    'script',
+    ['type' => 'speculationrules'],
+    <<<script
+    {
+        "tag": "siteation_pagespeed",
+        "prerender": [{
+            "source": "document",
+            "where": {
+                "and": [
+                    { "href_matches": "/*" },
+                    { "not": { "href_matches": {$speculationRules->getExcludeList()} }},
+                    { "not": { "selector_matches": ".do-not-prerender" } },
+                    { "not": { "selector_matches": "[download]" } },
+                    { "not": { "selector_matches": "[rel~=nofollow]" } }
 
-            ]
-        },
-        "eagerness": "moderate"
-    }]
-}
-</script>
+                ]
+            },
+            "eagerness": "moderate"
+        }]
+    }
+    script,
+    false
+); ?>
