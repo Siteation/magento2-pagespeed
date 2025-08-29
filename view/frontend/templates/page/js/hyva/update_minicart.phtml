@@ -17,7 +17,7 @@ use Hyva\Theme\ViewModel\HyvaCsp;
 
 <script>
     window.addEventListener('pageshow', (event) => {
-        if (event.persistedrd) {
+        if (event.persisted) {
             window.dispatchEvent(new CustomEvent("reload-customer-section-data"));
         };
     });
