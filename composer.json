@@ -1,6 +1,6 @@
 {
   "name": "siteation/magento2-pagespeed",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "type": "magento2-module",
   "description": "Back Forward Cache, Speculation Rules and View Transitions for Magento2",
