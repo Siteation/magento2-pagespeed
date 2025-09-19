@@ -36,8 +36,7 @@ class AddHeadersToPageResultPlugin
         }
 
         /** @var Http $httpResponse */
-        $maxAge = $this->config->getMaxAge();
-        $httpResponse->setHeader('cache-control', 'public, max-age='.$maxAge, true);
+        $httpResponse->setHeader('cache-control', 'no-cache, must-revalidate, max-age=0', true);
 
         return $return;
     }
