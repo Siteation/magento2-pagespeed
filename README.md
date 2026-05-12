@@ -1,5 +1,33 @@
 # Siteation - Magento 2 Pagespeed
 
+> [!WARNING]
+> **This module is DEPRECATED.**
+> The main issue this module addressed (bfcache compatibility in Magento 2) is being solved in the Magento core via [Pull Request #40750](https://github.com/magento/magento2/pull/40750).
+> We recommend migrating to the official Magento solution or using the patch provided in the PR.
+
+## Deprecation & Migration Guide
+
+This project is no longer maintained. The core functionality is now better served by the upcoming official Magento 2 implementation.
+
+### Why Deprecate?
+The primary goal of this module was to enable Back/Forward Cache (bfcache) support and modern browser features in Magento 2. These are now being addressed directly in the Magento core:
+- **Magento Core PR:** [magento/magento2#40750](https://github.com/magento/magento2/pull/40750)
+- **Patch Suggestion:** You can apply the fix manually using the [patch suggested here](https://github.com/magento/magento2/pull/40750#issuecomment-4343222340).
+- **Hyvä Docs:** The solution is also documented on the [Hyvä Docs](https://docs.hyva.io/hyva-themes/performance/bfcache.html) which points to the Magento 2 PR.
+- **Mage Script:** This patch is also applied automatically via the [Mage Script](https://github.com/GrimLink/mage/) until it is merged into the Magento core.
+
+### Migration
+If you are currently using this module, we recommend:
+1. Uninstalling this module:
+   ```sh
+   bin/magento module:disable Siteation_Pagespeed
+   composer remove siteation/magento2-pagespeed
+   ```
+2. Applying the official Magento 2 patch (as linked above) to your project until it is officially merged into a stable release.
+3. Review the [Hyvä Docs on bfcache](https://docs.hyva.io/hyva-themes/performance/bfcache.html) for additional frontend-specific optimizations.
+
+---
+
 [![Packagist Version](https://img.shields.io/packagist/v/siteation/magento2-pagespeed?style=for-the-badge)](https://packagist.org/packages/siteation/magento2-pagespeed)
 [![License](https://img.shields.io/github/license/Siteation/magento2-pagespeed?color=%23234&style=for-the-badge)](/LICENSE)
 ![Supported Magento Versions](https://img.shields.io/badge/magento-%202.4-brightgreen.svg?logo=magento&longCache=true&style=for-the-badge)
